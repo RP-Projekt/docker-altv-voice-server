@@ -1,5 +1,4 @@
-
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ARG BRANCH=release
 
@@ -10,7 +9,7 @@ WORKDIR /opt/altv/
 RUN apt-get update && \
     apt-get install -y wget libatomic1 && \
 #
-    wget --no-cache -q -O ./altv-voice-server http://cdn.altv.mp/voice-server/${BRANCH}/x64_linux/altv-voice-server && \
+    wget --no-cache -q -O ./altv-voice-server https://cdn.alt-mp.com/voice-server/${BRANCH}/x64_linux/altv-voice-server && \
 #
     chmod +x ./altv-voice-server /root/entrypoint.sh && \
 #
