@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:jammy
 
 ARG BRANCH=release
 
@@ -8,11 +8,8 @@ WORKDIR /opt/altv/
 
 RUN apt-get update && \
     apt-get install -y wget libatomic1 && \
-#
     wget --no-cache -q -O ./altv-voice-server https://cdn.alt-mp.com/voice-server/${BRANCH}/x64_linux/altv-voice-server && \
-#
     chmod +x ./altv-voice-server /root/entrypoint.sh && \
-#
     apt-get purge -y wget && \
     apt-get clean
 
